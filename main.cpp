@@ -2,7 +2,7 @@
 #include <limits> // Para std::numeric_limits
 using namespace std;
 
-// Definición de la estructura Nodo
+// Definicion de la estructura Nodo
 struct Nodo {
     int dato;
     Nodo* siguiente;
@@ -12,7 +12,7 @@ struct Nodo {
 void agregarPila(Nodo*& pila, int n);
 bool sacarPila(Nodo*& pila, int& n);
 bool eliminarElemento(Nodo*& pila, int n);
-void mostrarPila(Nodo* pila); // Función para mostrar la pila sin modificarla
+void mostrarPila(Nodo* pila); // Funcion para mostrar la pila sin modificarla
 
 int main() {
     Nodo* pila = nullptr;  // Inicializamos la pila
@@ -22,7 +22,7 @@ int main() {
     do { // Pedimos todos los elementos de la pila
         cout << "Digite un numero: ";
         while (!(cin >> dato)) { // Verificamos la entrada
-            cout << "Entrada inválida. Por favor, digite un número entero: ";
+            cout << "Entrada invalida. Por favor, digite un numero entero: ";
             cin.clear(); // Limpiar el estado de error
             cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Ignorar entrada incorrecta
         }
@@ -39,7 +39,7 @@ int main() {
     mostrarPila(pila);
     cout << "."; // Punto al final de la salida
 
-    // Opción para eliminar un elemento
+    // Opcion para eliminar un elemento
     cout << "\n\nDesea eliminar un elemento de la pila? (s/n): ";
     cin >> rpt;
     if (rpt == 's' || rpt == 'S') {
@@ -52,8 +52,8 @@ int main() {
         }
     }
 
-    // Mostrar la pila después de la eliminación
-    cout << "\nMostrando los elementos de la pila después de la eliminación: ";
+    // Mostrar la pila despues de la eliminacion
+    cout << "\nMostrando los elementos de la pila despues de la eliminacion: ";
     mostrarPila(pila);
     cout << "."; // Punto al final de la salida
 
@@ -61,7 +61,7 @@ int main() {
 }
 
 void agregarPila(Nodo*& pila, int n) {
-    Nodo* nuevo_nodo = new Nodo{n, pila}; // Uso de inicialización de lista
+    Nodo* nuevo_nodo = new Nodo{n, pila}; // Uso de inicializacion de lista
     pila = nuevo_nodo;
 
     cout << "\tElemento " << n << " agregado a PILA correctamente" << endl;
@@ -69,7 +69,7 @@ void agregarPila(Nodo*& pila, int n) {
 
 bool sacarPila(Nodo*& pila, int& n) {
     if (pila == nullptr) {
-        return false; // Retorna false si la pila está vacía
+        return false; // Retorna false si la pila esta vacia
     }
     Nodo* aux = pila;
     n = aux->dato;
@@ -102,13 +102,13 @@ bool eliminarElemento(Nodo*& pila, int n) {
 
 void mostrarPila(Nodo* pila) {
     Nodo* actual = pila;
-    bool first = true; // Variable para manejar la impresión del separador
+    bool first = true; // Variable para manejar la impresion del separador
     while (actual != nullptr) {
         if (!first) {
             cout << " , ";
         }
         cout << actual->dato;
         actual = actual->siguiente;
-        first = false; // Después de imprimir el primer elemento, cambia a false
+        first = false; // Despues de imprimir el primer elemento, cambia a false
     }
 }
